@@ -109,8 +109,20 @@
 
   // Event listeners
   submitButton.addEventListener('click', showResults);
+   // Pagination
+   var previousButton = document.getElementById("previous");
+   var nextButton = document.getElementById("next");
+   var slides = document.querySelectorAll(".slide");
+   let currentSlide = 0;
+ 
+   // Show the first slide
+   showSlide(currentSlide);
+ 
+   // Event listeners
+   submitButton.addEventListener('click', showResults);
+   previousButton.addEventListener("click", showPreviousSlide);
+   nextButton.addEventListener("click", showNextSlide);
 })();
-console.log("thisdfosdfadfa")
 
 //A recipe card 
 // create an object to hold information on your favorite recipe. it should have 4

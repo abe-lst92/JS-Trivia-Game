@@ -1,5 +1,5 @@
-(function(){
-  function buildQuiz(){
+(function () {
+  function buildQuiz() {
     // variable to store the HTML output
     var output = [];
 
@@ -11,7 +11,7 @@
         var answers = [];
 
         // and for each available answer...
-        for(letter in currentQuestion.answers){
+        for (letter in currentQuestion.answers) {
 
           // ...add an HTML radio button
           answers.push(
@@ -25,8 +25,11 @@
 
         // add this question and its answers to the output
         output.push(
-          `<div class="question"> ${currentQuestion.question} </div>
-          <div class="answers"> ${answers.join('')} </div>`
+          `<div class="slide"> 
+          < div class= "question" > ${ currentQuestion.question } </div >
+        <div class="answers"> ${answers.join("")} </div>
+          </div >`
+         
         );
       }
     );
@@ -35,7 +38,7 @@
     quizContainer.innerHTML = output.join('');
   }
 
-  function showResults(){
+  function showResults() {
 
     // gather answer containers from our quiz
     var answerContainers = quizContainer.querySelectorAll('.answers');
@@ -44,7 +47,7 @@
     let numCorrect = 0;
 
     // for each question...
-    myQuestions.forEach( (currentQuestion, questionNumber) => {
+    myQuestions.forEach((currentQuestion, questionNumber) => {
 
       // find selected answer
       var answerContainer = answerContainers[questionNumber];
@@ -52,7 +55,7 @@
       var userAnswer = (answerContainer.querySelector(selector) || {}).value;
 
       // if answer is correct
-      if(userAnswer === currentQuestion.correctAnswer){
+      if (userAnswer === currentQuestion.correctAnswer) {
         // add to the number of correct answers
         numCorrect++;
 
@@ -60,7 +63,7 @@
         answerContainers[questionNumber].style.color = 'lightgreen';
       }
       // if answer is wrong or blank
-      else{
+      else {
         // color the answers red
         answerContainers[questionNumber].style.color = 'red';
       }
@@ -68,6 +71,34 @@
 
     // show number of correct answers out of total
     resultsContainer.innerHTML = `${numCorrect} out of ${myQuestions.length}`;
+  }
+
+  function showSlide(n) {
+    slides[currentSlide].classList.remove('active-slide');
+    slides[n].classList.add('active-slide');
+    currentSlide = n;
+    if (currentSlide === 0) {
+      previousButton.style.display = 'none';
+    }
+    else {
+      previousButton.style.display = 'inline-block';
+    }
+    if (currentSlide === slides.length - 1) {
+      nextButton.style.display = 'none';
+      submitButton.style.display = 'inline-block';
+    }
+    else {
+      nextButton.style.display = 'inline-block';
+      submitButton.style.display = 'none';
+    }
+  }
+
+  function showNextSlide() {
+    showSlide(currentSlide + 1);
+  }
+
+  function showPreviousSlide() {
+    showSlide(currentSlide - 1);
   }
 
   var quizContainer = document.getElementById('quiz');
@@ -107,100 +138,17 @@
   // Kick things off
   buildQuiz();
 
+  // Pagination
+  var previousButton = document.getElementById("previous");
+  var nextButton = document.getElementById("next");
+  var slides = document.querySelectorAll(".slide");
+  let currentSlide = 0;
+
+  // Show the first slide
+  showSlide(currentSlide);
+
   // Event listeners
   submitButton.addEventListener('click', showResults);
-   // Pagination
-   var previousButton = document.getElementById("previous");
-   var nextButton = document.getElementById("next");
-   var slides = document.querySelectorAll(".slide");
-   let currentSlide = 0;
- 
-   // Show the first slide
-   showSlide(currentSlide);
- 
-   // Event listeners
-   submitButton.addEventListener('click', showResults);
-   previousButton.addEventListener("click", showPreviousSlide);
-   nextButton.addEventListener("click", showNextSlide);
+  previousButton.addEventListener("click", showPreviousSlide);
+  nextButton.addEventListener("click", showNextSlide);
 })();
-
-//A recipe card 
-// create an object to hold information on your favorite recipe. it should have 4
-// properties including (a string), (number), an array of strings, and 1 more
-//on separate lines console.log for each the recipe
-
-      
-//       var books = [
-//          {title: "steps to Academic Writing",
-//  author: "Jean Zukowski",
-// alreadyRead: false
-
-//         }, 
-
-       
-//        {title: "A promise Land ",
-//  author: "Barack Obama",
-// alreadyRead: false
-//           },
-
-        
-//            {title: "Night",
-//  author: "Elie Wisel",
-// alreadyRead: true
-//            }
-
-//       ]
-      
-//    for (i=0; i<books.length; i++){
-// var book= books[i];
-// var bookInfo = book.title + " by " + book.author;
-// if (book.alreadyRead) {
-//     document.write("You Read " + bookInfo + "<br>");
-// }else{
-//   document.write("You still need to read " + bookInfo + "<br>");
-
-// };
-// }
-
- 
-
-
-// var myRecipe = {
-// recipe: "Tamales", 
-// CanEat: 6, 
-// Types: ["Red sauce", "sweet", "Green sauce"],
-// Size: 45
-
-//  };
-
-//  console.log("This is a Mexican recipe known as " + myRecipe.recipe);
-//  console.log("I can eat " + myRecipe.CanEat);
-//  console.log("There is different types of recipes " + myRecipe.Types);
-//  console.log("The tamales size are " + myRecipe.Size + " Cm");
-
-
-
-// var sibling = { name: "Santy", age: 9, isSingle: false };
-
-// var sibling = new Object();
-// sibling.name = "Santy";
-// sibling.age = 9;
-// sibling.isSingle = false;
-// sibling.email = 'abc@gmail.com'
-
-// function meetSibling(){
-//     console.log(" My name is " + sibling.name);
-// }
-
-// meetSibling();
-// // dot way
-// // document.write("My name is " + sibling.name + " I am " + sibling.age + " Years Old. ")
-// // //string obj
-// // document.write("My name is " + sibling["name"] + " My email is " + sibling["email"]);
-
-// //all values for the following var code
-// for (value in sibling){
-//     document.write(value);
-// }
-
-// document.write(Object.values(sibling));

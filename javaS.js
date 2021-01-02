@@ -119,83 +119,75 @@
       question: "Is JavaScript the most popular programming language that people use",
       answers: {
         a: "Pfff, Naaaaaah I don't believe that",
-        b: "Of course, You are crazy or what.",
+        b: "Of course, You are crazy or what!",
         c: "It don't matter"
       },
       correctAnswer: "b"
     },
     {
-      question: "Which tool can you use to ensure code quality?",
+      question: "Which App is more famous?",
       answers: {
-        a: "Angular",
-        b: "jQuery",
-        c: "RequireJS",
-        d: "ESLint"
+        a: "Snapchat",
+        b: "Facebook",
+        c: "Instagram",
+        d: "Don't care"
       },
-      correctAnswer: "d"
+      correctAnswer: "b"
     },
     {
-      question: "Who inve",
+      question: "Who invented the first apps?",
       answers: {
         a: "Douglas Crockford",
-        b: "Sheryl Sandberg",
-        c: "Brendan Eich"
+        b: "Andrew Lincoln",
+        c: "Steve Jobs"
       },
       correctAnswer: "c"
     },
     {
-      question: "Who inven?",
+      question: "Who was the first creator of videogames?",
       answers: {
-        a: "Douglas Crockford",
-        b: "Sheryl Sandberg",
+        a: "Ralph Baer",
+        b: "Joseph Kates",
         c: "Brendan Eich"
+      },
+      correctAnswer: "a"
+    },
+    {
+      question: "Who is the most famous person in programming?",
+      answers: {
+        a: "Ada Lovalace",
+        b: "Bill Gates",
+        c: "Jack Dorsey"
+      },
+      correctAnswer: "b"
+    },
+    {
+      question: "Do you remember what is binary",
+      answers: {
+        a: "1s and 0s",
+        b: "waves",
+        c: "numbers and letters"
+      },
+      correctAnswer: "a"
+    },
+    {
+      question: "Who was the first hacker in the world?",
+      answers: {
+        a: "John Kennedy",
+        b: "Kevin Mitnick",
+        c: "Konrad Zuse",
       },
       correctAnswer: "c"
     },
+   
     {
-      question: "d JavaScript?",
+      question: "Who are the most know hacker's organization called?",
       answers: {
-        a: "Douglas Crockford",
-        b: "Sheryl Sandberg",
-        c: "Brendan Eich"
+        a: "Anonymous",
+        b: "Lizard",
+        c: "fancy bear"
       },
-      correctAnswer: "c"
-    },
-    {
-      question: "Who ed JavaScript?",
-      answers: {
-        a: "Douglas Crockford",
-        b: "Sheryl Sandberg",
-        c: "Brendan Eich"
-      },
-      correctAnswer: "c"
-    },
-    {
-      question: "Who invented ?",
-      answers: {
-        a: "Douglas Crockford",
-        b: "Sheryl Sandberg",
-        c: "Brendan Eich"
-      },
-      correctAnswer: "c"
-    },
-    {
-      question: "Who invented Javript?",
-      answers: {
-        a: "Douglas Crockford",
-        b: "Sheryl Sandberg",
-        c: "Brendan Eich"
-      },
-      correctAnswer: "c"
-    },
-    {
-      question: "Who invented Jript?",
-      answers: {
-        a: "Douglas Crockford",
-        b: "Sheryl Sandberg",
-        c: "Brendan Eich"
-      },
-      correctAnswer: "c"
+      correctAnswer: "a"
     },
     
   ];

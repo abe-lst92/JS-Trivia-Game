@@ -1,5 +1,5 @@
 (function () {
-  function buildQuiz() {
+  function myQuiz() {
     // variable to store the HTML output
     var output = [];
 
@@ -39,7 +39,7 @@
     quizContainer.innerHTML = output.join('');
   }
 
-  function showResults() {
+  function score() {
 
     // gather answer containers from our quiz
     var answerContainers = quizContainer.querySelectorAll('.answers');
@@ -71,10 +71,10 @@
     });
 
     // show number of correct answers out of total
-    resultsContainer.innerHTML = `${numCorrect} out of ${myQuestions.length}`;
+    results.innerHTML = `${numCorrect} out of ${myQuestions.length}`;
   }
 
-  function showSlide(n) {
+  function Slides(n) {
     slides[currentSlide].classList.remove('active-slide');
     slides[n].classList.add('active-slide');
     currentSlide = n;
@@ -86,43 +86,43 @@
     }
     if (currentSlide === slides.length - 1) {
       nextButton.style.display = 'none';
-      submitButton.style.display = 'inline-block';
+      submit.style.display = 'inline-block';
     }
     else {
       nextButton.style.display = 'inline-block';
-      submitButton.style.display = 'none';
+      submit.style.display = 'none';
     }
   }
 
   function showNextSlide() {
-    showSlide(currentSlide + 1);
+    Slides(currentSlide + 1);
   }
 
   function showPreviousSlide() {
-    showSlide(currentSlide - 1);
+    Slides(currentSlide - 1);
   }
 
   var quizContainer = document.getElementById('quiz');
-  var resultsContainer = document.getElementById('results');
-  var submitButton = document.getElementById('submit');
+  var results = document.getElementById('results');
+  var submit = document.getElementById('submit');
   var myQuestions = [
     {
-      question: "Who invented JavaScript?",
+      question: "Who was the first creator of programming languages",
       answers: {
-        a: "Douglas Crockford",
-        b: "Sheryl Sandberg",
-        c: "Brendan Eich"
+        a: "Ada Lovelance",
+        b: "Albert Einsten",
+        c: "John Backus"
       },
-      correctAnswer: "c"
+      correctAnswer: "a"
     },
     {
-      question: "Which one of these is a JavaScript package manager?",
+      question: "Is JavaScript the most popular programming language that people use",
       answers: {
-        a: "Node.js",
-        b: "TypeScript",
-        c: "npm"
+        a: "Pfff, Naaaaaah I don't believe that",
+        b: "Of course, You are crazy or what.",
+        c: "It don't matter"
       },
-      correctAnswer: "c"
+      correctAnswer: "b"
     },
     {
       question: "Which tool can you use to ensure code quality?",
@@ -133,11 +133,75 @@
         d: "ESLint"
       },
       correctAnswer: "d"
-    }
+    },
+    {
+      question: "Who inve",
+      answers: {
+        a: "Douglas Crockford",
+        b: "Sheryl Sandberg",
+        c: "Brendan Eich"
+      },
+      correctAnswer: "c"
+    },
+    {
+      question: "Who inven?",
+      answers: {
+        a: "Douglas Crockford",
+        b: "Sheryl Sandberg",
+        c: "Brendan Eich"
+      },
+      correctAnswer: "c"
+    },
+    {
+      question: "d JavaScript?",
+      answers: {
+        a: "Douglas Crockford",
+        b: "Sheryl Sandberg",
+        c: "Brendan Eich"
+      },
+      correctAnswer: "c"
+    },
+    {
+      question: "Who ed JavaScript?",
+      answers: {
+        a: "Douglas Crockford",
+        b: "Sheryl Sandberg",
+        c: "Brendan Eich"
+      },
+      correctAnswer: "c"
+    },
+    {
+      question: "Who invented ?",
+      answers: {
+        a: "Douglas Crockford",
+        b: "Sheryl Sandberg",
+        c: "Brendan Eich"
+      },
+      correctAnswer: "c"
+    },
+    {
+      question: "Who invented Javript?",
+      answers: {
+        a: "Douglas Crockford",
+        b: "Sheryl Sandberg",
+        c: "Brendan Eich"
+      },
+      correctAnswer: "c"
+    },
+    {
+      question: "Who invented Jript?",
+      answers: {
+        a: "Douglas Crockford",
+        b: "Sheryl Sandberg",
+        c: "Brendan Eich"
+      },
+      correctAnswer: "c"
+    },
+    
   ];
 
   // Kick things off
-  buildQuiz();
+  myQuiz();
 
   // Pagination
   var previousButton = document.getElementById("previous");
@@ -146,10 +210,10 @@
   let currentSlide = 0;
 
   // Show the first slide
-  showSlide(currentSlide);
+  Slides(currentSlide);
 
   // Event listeners
-  submitButton.addEventListener('click', showResults);
+  submit.addEventListener('click', score);
   previousButton.addEventListener("click", showPreviousSlide);
   nextButton.addEventListener("click", showNextSlide);
 })();
